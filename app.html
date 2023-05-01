@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/quiz3.css">
+</head>
+<body>
+    <div id="container">
+
+
+        <div id="start">Start Quiz!</div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div class="img" id="qImg"></div>
+           
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+
+            </div>
+       
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+            <div id="progress"></div>
+        
+        <div id="scoreContainer" style="display: none"></div>
+    </div>
+    
+</div>
+<a class="nav-link active" aria-current="page" href="index.html">Finish</a>
+
+
+  <!-- <script src="js/quiz3.js"></script> -->  
+    <script src="js/qpctest.js"></script>
+</body>
+</html>
