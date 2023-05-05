@@ -117,7 +117,7 @@ let questions = [
     },{
         question : "How do you save a file?",
         
-        choiceA : "Ctrl+X",
+        choiceA : "Ctrl+V",
         choiceB : "Ctrl+A",
         choiceC : "Ctrl+P",
         choiceD : "Ctrl+S",
