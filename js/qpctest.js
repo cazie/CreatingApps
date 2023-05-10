@@ -1,8 +1,10 @@
 // select all elements
+const restart = document.getElementById("restart")
 const start = document.getElementById("start");
+const hideText = document.getElementById("hide-text");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
-const qImg = document.getElementById("qImg");
+//const qImg = document.getElementById("qImg");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
@@ -17,25 +19,24 @@ const whatNext = document.getElementById("whatNext");
 let questions = [
     {
 
-        question : "This is how we copy text on computer screen?",
-        imgSrc : "img/js.png",
-        choiceA : "right-click Copy",
+        question : "This is how we copy text on computer screen?",       
+        choiceA : "right-click > Copy",
         choiceB : "Ctrl-C",
         choiceC : "Ctrl-V",
         choiceD :"A and B",
         correct : "D",
     },{
         question : "This is how we paste text on computer screen?",
-        imgSrc : "img/html.png",
-        choiceA : "right-click Paste",
+        
+        choiceA : "right-click > Paste",
         choiceB : "Ctrl-C",
         choiceC : "Ctrl-P",
         choiceD :"A and C",
-        correct : "C"
+        correct : "A"
  
     },{
         question : "What does HTML stand for?",
-        imgSrc : "img/html.png",
+        
         choiceA : "Hyper Text Markup Language",
         choiceB : "Home Tool Markup Language",
         choiceC : "Highway Tech Markup Language",
@@ -43,7 +44,7 @@ let questions = [
         correct : "A"
     },{
         question : "How do you copy text on a Windows computer?",
-        imgSrc : "img/copy.png",
+        
         choiceA : "Ctrl + V",
         choiceB : "Ctrl + C",
         choiceC : "Ctrl + X",
@@ -51,7 +52,7 @@ let questions = [
         correct : "B"
     },{
         question : "What is a web browser?",
-        imgSrc : "img/browser.png",
+        
         choiceA : "Software that allows you to access the internet",
         choiceB : "Hardware that connects your computer to the internet",
         choiceC : "A type of search engine",
@@ -60,7 +61,7 @@ let questions = [
         
     },{
         question : "How do you save a file on a Mac?",
-        imgSrc : "img/save.png",
+        
         choiceA : "Command + S",
         choiceB : "Control + S",
         choiceC : "Shift + S",
@@ -69,34 +70,37 @@ let questions = [
         
     },{
         question : "How do you create a new folder on a Windows computer?",
-        imgSrc : "img/folder.png",
-        choiceA : "Right-click and select New > Folder",
-        choiceB : "Click and drag a file to the desktop",
+       
+        
+        choiceA : "Click and drag a file to the desktop",
+        choiceB : "Right-click and select New > Folder",
         choiceC : "Press the F5 key",
         choiceD : "Click on the Recycle Bin",
-        correct : "A"
+        correct : "B"
         
     },{
         question : "What is a URL?",
-        imgSrc : "img/url.png",
-        choiceA : "A web address that identifies a specific webpage",
-        choiceB : "A type of file format used for images",
-        choiceC : "An acronym for Universal Resource Locator",
-        choiceD : "A type of programming language",
-        correct : "A"
+        
+        
+        choiceA : "A type of file format used for images",
+        choiceB : "An acronym for Universal Resource Locator",
+        choiceC : "A type of programming language",
+        choiceD : "A web address that identifies a specific webpage",
+        correct : "D"
         
     },{
         question : "What is a CPU?",
-        imgSrc : "img/cpu.png",
-        choiceA : "The central processing unit, which processes data in a computer",
-        choiceB : "A type of monitor",
-        choiceC : "A type of keyboard",
-        choiceD : "A type of printer",
-        correct : "A"
+       
+        
+        choiceA : "A type of monitor",
+        choiceB : "A type of keyboard",
+        choiceC : "A type of printer",
+        choiceD : "The central processing unit, which processes data in a computer",
+        correct : "D"
         
     },{
         question : "How do you search the web using Google?",
-        imgSrc : "img/google.png",
+        
         choiceA : "Type your search query into the search box and press Enter",
         choiceB : "Click on the Google logo",
         choiceC : "Type your search query into the address bar",
@@ -104,17 +108,8 @@ let questions = [
         correct : "A"
         
     },{
-        question : "What is the shortcut key to copy text?",
-        imgSrc : "img/copy.png",
-        choiceA : "Ctrl+C",
-        choiceB : "Ctrl+X",
-        choiceC : "Ctrl+V",
-        choiceD : "Ctrl+Z",
-        correct : "A"
-        
-    },{
         question : "What is the shortcut key to cut text?",
-        imgSrc : "img/cut.png",
+       
         choiceA : "Ctrl+X",
         choiceB : "Ctrl+C",
         choiceC : "Ctrl+V",
@@ -123,64 +118,53 @@ let questions = [
         
     },{
         question : "How do you save a file?",
-        imgSrc : "img/save.png",
-        choiceA : "Ctrl+S",
+        
+        choiceA : "Ctrl+V",
         choiceB : "Ctrl+A",
         choiceC : "Ctrl+P",
-        choiceD : "Ctrl+X",
-        correct : "A"
+        choiceD : "Ctrl+S",
+        correct : "D"
         
     },{
         question : "What is the shortcut key to open the task manager?",
-        imgSrc : "img/task-manager.png",
+        
         choiceA : "Ctrl+Shift+Esc",
-        choiceB : "Ctrl+Alt+Delete",
+        choiceB : "Ctrl+Alt+Del",
         choiceC : "Ctrl+Alt+Esc",
-        choiceD : "Ctrl+Shift+Delete",
+        choiceD : "Ctrl+Shift+Del",
         correct : "A"
         
     },{
         question : "How do you open a new tab in a web browser?",
-        imgSrc : "img/new-tab.png",
-        choiceA : "Press 'Ctrl+T'",
+     
+        choiceA : "Press 'Ctrl+W'",
         choiceB : "Press 'Ctrl+N'",
-        choiceC : "Press 'Ctrl+W'",
+        choiceC : "Press 'Ctrl+T'",
         choiceD : "Press 'Ctrl+P'",
-        correct : "A"
+        correct : "C"
         
     },{
         question : "What is the shortcut key to refresh a web page?",
-        imgSrc : "img/refresh.png",
-        choiceA : "F5",
+       
+        choiceA : "B,C, or D",
         choiceB : "Ctrl+R",
-        choiceC : "Alt+R",
+        choiceC : "click circular arrow",
         choiceD : "Ctrl+F5",
         correct : "A"
         
     },
     {
         question : "Which of these is not a search browser?",
-        imgSrc : "img/browsers.png",
+       
         choiceA : "Firefox",
         choiceB : "Chrome",
         choiceC : "Safari",
         choiceD : "Microsoft Word",
         correct : "D"
         
-    },
-    {
-        question : "What is the shortcut key to refresh a web page?",
-        imgSrc : "img/refresh.png",
-        choiceA : "F5",
-        choiceB : "Ctrl+R",
-        choiceC : "Alt+R",
-        choiceD : "Ctrl+F5",
-        correct : "A"
-        
-    },
-    {
+    },{
         question : "What is programming?",
-        imgSrc : "img/programming.png",
+       
         choiceA : "The process of creating software programs using programming languages",
         choiceB : "The act of repairing computer hardware",
         choiceC : "The process of designing web pages using HTML",
@@ -190,77 +174,55 @@ let questions = [
     },
     {
         question : "What is a spreadsheet?",
-imgSrc : "img/spreadsheet.png",
-choiceA : "A tool for organizing and analyzing data in rows and columns",
-choiceB : "A type of computer monitor",
-choiceC : "A type of printer",
-choiceD : "A type of network cable",
-correct : "A"
         
-    },
+        choiceA : "A tool for organizing and analyzing data in rows and columns",
+        choiceB : "A type of computer monitor",
+        choiceC : "A type of printer",
+        choiceD : "A type of network cable",
+        correct : "A"
+                
+            },
     {
         question : "What is RAM?",
-imgSrc : "img/ram.png",
-choiceA : "A type of computer memory used for running programs",
-choiceB : "A type of keyboard",
-choiceC : "A type of computer mouse",
-choiceD : "A type of computer monitor",
-correct : "A"
+        choiceA : "A type of computer monitor",
+        choiceB : "A type of keyboard",
+        choiceC : "A type of computer mouse",
+        choiceD : "A type of computer memory used for running programs",
+        correct : "D"
         
     },
     {
         question : "What is a virus?",
-imgSrc : "img/virus.png",
-choiceA : "A malicious program that can harm your computer",
-choiceB : "A type of computer hardware",
-choiceC : "A type of computer monitor",
-choiceD : "A type of printer",
-correct : "A"
+       
+        choiceA : "A malicious program that can harm your computer",
+        choiceB : "A type of computer hardware",
+        choiceC : "A type of computer monitor",
+        choiceD : "A type of printer",
+        correct : "A"
         
-    },
-    {
-        question : "What is RAM?",
-imgSrc : "img/ram.png",
-choiceA : "A type of computer memory used for running programs",
-choiceB : "A type of keyboard",
-choiceC : "A type of computer mouse",
-choiceD : "A type of computer monitor",
-correct : "A"
-        
-    },
-    {
-        question : "What is a spreadsheet?",
-imgSrc : "img/spreadsheet.png",
-choiceA : "A tool for organizing and analyzing data in rows and columns",
-choiceB : "A type of computer monitor",
-choiceC : "A type of printer",
-choiceD : "A type of network cable",
-correct : "A"
-        
-    },
-    {
+    },{
         question: "Which keyboard shortcut can be used to open a file in most programs?",
-imgSrc : "img/file.png",
-choiceA : "Ctrl + P",
-choiceB : "Ctrl + F",
-choiceC : "Ctrl + S",
-choiceD : "Ctrl + O",
-correct : "D"
+       
+        choiceA : "Ctrl + P",
+        choiceB : "Ctrl + F",
+        choiceC : "Ctrl + S",
+        choiceD : "Ctrl + O",
+        correct : "D"
         
     },
     {
         question: "What is the function of the Ctrl + Alt + Delete keyboard shortcut in Windows?",
-imgSrc : "img/ctrl-alt-del.png",
-choiceA : "Opens the Task Manager",
-choiceB : "Locks the computer",
-choiceC : "Logs off the current user",
-choiceD : "All of the above",
-correct : "D"
+      
+        choiceA : "Opens the Task Manager",
+        choiceB : "Locks the computer",
+        choiceC : "Logs off the current user",
+        choiceD : "All of the above",
+        correct : "D"
         
     },
     {
         question: "What does 'CC' stand for in email?",
-        imgSrc : "img/email.png",
+       
         choiceA : "Carbon Copy",
         choiceB : "Close Copy",
         choiceC : "Correct Copy",
@@ -269,48 +231,17 @@ correct : "D"
         
     },
     {
-        question: "Which of the following is a common way to organize emails in an email client?",
-imgSrc : "img/email.png",
-choiceA : "Inboxes",
-choiceB : "Labels",
-choiceC : "Folders",
-choiceD : "All of the above",
-correct : "D"
-        
-    },
-    {
         question: "Which of the following is NOT a common email provider?",
-        imgSrc : "img/email.png",
+       
         choiceA : "Gmail",
         choiceB : "Yahoo",
         choiceC : "Hotmail",
         choiceD : "Bluetooth",
         correct : "D"
         
-    },
-    {
-        question: "What is the keyboard shortcut to open a file in most software applications?",
-        imgSrc: "img/keyboard.png",
-        choiceA : "Ctrl + Shift + O",
-        choiceB : "Ctrl + O",
-        choiceC : "Ctrl + S",
-        choiceD : "Ctrl + Shift + S",
-        correct : "B"
-        
-    },
-    {
-        question: "Which of the following is NOT a common email provider?",
-        imgSrc : "img/email.png",
-        choiceA : "Gmail",
-        choiceB : "Yahoo",
-        choiceC : "Hotmail",
-        choiceD : "Bluetooth",
-        correct : "D"
-        
-    },
-    {
+    },{
         question: "How do you save a file with a new name?",
-        imgSrc : "img/saveas.png",
+        
         choiceA : "Ctrl + S",
         choiceB : "Ctrl + Shift + S",
         choiceC : "Ctrl + Shift + N",
@@ -320,22 +251,12 @@ correct : "D"
     },
     {
         question: "What is the difference between 'Save' and 'Save As'?",
-        imgSrc : "img/save.png",
+       
         choiceA : "There is no difference",
         choiceB : "Save As saves a new copy with a different name or location",
         choiceC : "Save As is a shortcut for Save",
         choiceD : "Save only works with certain file types",
         correct : "B"
-        
-    },
-    {
-        question: "Which of the following is NOT a common email provider?",
-        imgSrc : "img/email.png",
-        choiceA : "Gmail",
-        choiceB : "Yahoo",
-        choiceC : "Hotmail",
-        choiceD : "Bluetooth",
-        correct : "D"
         
     }
 ];
@@ -345,7 +266,7 @@ correct : "D"
 const lastQuestion = questions.length - 1;
 let runningQuestion = 0;
 let count = 0;
-const questionTime = 20; // 10s
+const questionTime = 15; // 10s
 const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
 let TIMER;
@@ -356,17 +277,18 @@ function renderQuestion(){
     let q = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
-    qImg.innerHTML = "<img src="+ q.imgSrc +">";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
-    choiceD.innerHTML = q.choiceD;
+   // qImg.innerHTML = "<img src="+ q.imgSrc +">";
+    choiceA.innerHTML =  "<p>" + q.choiceA + "</p>";
+    choiceB.innerHTML =  "<p>" + q.choiceB + "</p>";
+    choiceC.innerHTML =  "<p>" + q.choiceC + "</p>";
+    choiceD.innerHTML =  "<p>" + q.choiceD + "</p>";
 }
 
 start.addEventListener("click",startQuiz);
 
 // start quiz
 function startQuiz(){
+    hideText.style.display = "none";
     start.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";
@@ -374,6 +296,8 @@ function startQuiz(){
     renderCounter();
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
+
+
 
 // render progress
 function renderProgress(){
@@ -454,12 +378,9 @@ function scoreRender(){
     
     scoreDiv.innerHTML = "<img src="+ img +">";
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
-    if(scorePerCent >= 50){ 
-        scoreDiv.innerHTML +='<a href="whatittakes50.html"> Next Steps 50+</a>'
-    }else{
-        scoreDiv.innerHTML +='<a href="whatittakes.html"> Next Steps under 50</a>'
-    }
-    
+   
+    scoreDiv.innerHTML +='<a href="https://fsa-course.samcart.com/products/5-apps-in-5-hours">Enrol in course</a>';
+  
 }
 
 
