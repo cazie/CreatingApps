@@ -1,5 +1,7 @@
 // select all elements
+const restart = document.getElementById("restart")
 const start = document.getElementById("start");
+const hideText = document.getElementById("hide-text");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
 //const qImg = document.getElementById("qImg");
@@ -286,6 +288,7 @@ start.addEventListener("click",startQuiz);
 
 // start quiz
 function startQuiz(){
+    hideText.style.display = "none";
     start.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";
@@ -293,6 +296,8 @@ function startQuiz(){
     renderCounter();
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
+
+
 
 // render progress
 function renderProgress(){
@@ -373,12 +378,9 @@ function scoreRender(){
     
     scoreDiv.innerHTML = "<img src="+ img +">";
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
-    if(scorePerCent >= 50){ 
-        scoreDiv.innerHTML +='<a href="whatittakes50.html"> Next Steps 50+</a>'
-    }else{
-        scoreDiv.innerHTML +='<a href="whatittakes.html"> Next Steps under 50</a>'
-    }
-    
+   
+    scoreDiv.innerHTML +='<a href="https://fsa-course.samcart.com/products/5-apps-in-5-hours">Enrol in course</a>';
+  
 }
 
 
